@@ -1,25 +1,28 @@
 import React from "react";
-import "./App.css";
+import AddToDo from "./AddToDo";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      toDos: [],
+    };
+  }
 
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  addToDo = (toDo) => {
+    this.setState((state) => {
+      return { toDos: state.toDos.concat(toDo) };
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">todo-pomodoro</header>
+        <AddToDo addToDo={this.addToDo} />
+      </div>
+    );
+  }
 }
 
 export default App;
