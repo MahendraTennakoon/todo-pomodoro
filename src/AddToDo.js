@@ -11,6 +11,9 @@ class AddToDo extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.addToDo(this.state.toDo);
+    this.setState({
+      toDo: "",
+    });
   };
 
   handleChange = (event) => {
@@ -27,6 +30,7 @@ class AddToDo extends React.Component {
             type="text"
             id="txt_add_todo"
             placeholder="Add todo"
+            value={this.state.toDo}
             onChange={this.handleChange}
           />
         </form>

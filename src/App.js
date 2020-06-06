@@ -1,5 +1,6 @@
 import React from "react";
 import AddToDo from "./AddToDo";
+import ToDoList from "./ToDoList";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">todo-pomodoro</header>
         <AddToDo addToDo={this.addToDo} />
+        <ToDoList toDos={this.state.toDos} />
       </div>
     );
   }
