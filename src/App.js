@@ -2,18 +2,25 @@ import React from "react";
 import AddToDo from "./AddToDo";
 import ToDoList from "./ToDoList";
 
+import { saveToDos, getAllToDos } from "./services/localStorageService";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toDos: [],
+      toDos: getAllToDos(),
     };
   }
 
   addToDo = (toDo) => {
-    this.setState((state) => {
-      return { toDos: state.toDos.concat(toDo) };
-    });
+    this.setState(
+      (state) => {
+        return { toDos: state.toDos.concat(toDo) };
+      },
+      () => {
+        saveToDos(this.state.toDos);
+      }
+    );
   };
 
   render() {

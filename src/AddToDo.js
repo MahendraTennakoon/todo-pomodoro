@@ -32,6 +32,7 @@ class AddToDo extends React.Component {
             placeholder="Add todo"
             value={this.state.toDo}
             onChange={this.handleChange}
+            autoComplete="off"
           />
         </form>
       </div>
