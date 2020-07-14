@@ -5,7 +5,7 @@ export default function ToDoList(props) {
   return (
     <ol>
       {toDos.map((toDo, index) => (
-        <li key={index}>{toDo}</li>
+        <li key={index}>{toDo.description}</li>
       ))}
     </ol>
   );

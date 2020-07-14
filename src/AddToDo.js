@@ -1,4 +1,5 @@
 import React from "react";
+import { createToDo } from "./factories";
 
 class AddToDo extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class AddToDo extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.addToDo(this.state.toDo);
+    this.props.addToDo(createToDo({ description: this.state.toDo }));
     this.setState({
       toDo: "",
     });
