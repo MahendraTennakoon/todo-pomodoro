@@ -1,3 +1,5 @@
+import { validate as uuidValidate } from "uuid";
+
 import { createToDo } from "./factories";
 
 describe("test createToDo", () => {
@@ -5,6 +7,6 @@ describe("test createToDo", () => {
     const toDo = createToDo({ description: "create a ToDo app" });
     expect(toDo.description).toBe("create a ToDo app");
     expect(toDo.status).toBe("OPEN");
-    expect(toDo.id).toBeDefined();
+    expect(uuidValidate(toDo.id)).toBe(true);
   });
 });

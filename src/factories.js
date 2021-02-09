@@ -1,5 +1,7 @@
+import { v4 as uuid } from "uuid";
+
 export const createToDo = ({ description }) => ({
-  id: "random",
+  id: uuid(),
   status: "OPEN",
   description,
 });
