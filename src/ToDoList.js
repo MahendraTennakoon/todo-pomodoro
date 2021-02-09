@@ -1,11 +1,13 @@
 import React from "react";
 
+import ToDo from "./ToDo";
+
 export default function ToDoList(props) {
-  const { toDos } = props;
+  const { toDos, deleteToDo } = props;
   return (
     <ol>
       {toDos.map((toDo, index) => (
-        <li key={index}>{toDo.description}</li>
+        <ToDo key={index} toDo={toDo} deleteToDo={deleteToDo} />
       ))}
     </ol>
   );

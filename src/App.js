@@ -2,7 +2,11 @@ import React from "react";
 import AddToDo from "./AddToDo";
 import ToDoList from "./ToDoList";
 
-import { saveToDos, getAllToDos } from "./services/localStorageService";
+import {
+  saveToDos,
+  getAllToDos,
+  deleteToDo,
+} from "./services/localStorageService";
 
 class App extends React.Component {
   constructor(props) {
@@ -23,12 +27,19 @@ class App extends React.Component {
     );
   };
 
+  deleteToDo = (id) => {
+    deleteToDo(id);
+    this.setState({
+      toDos: getAllToDos(),
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">todo-pomodoro</header>
         <AddToDo addToDo={this.addToDo} />
-        <ToDoList toDos={this.state.toDos} />
+        <ToDoList toDos={this.state.toDos} deleteToDo={this.deleteToDo} />
       </div>
     );
   }
